@@ -1,5 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
+        <livewire:components.back-link :label='"Lists"' :route="'lists'" />
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Lists') }}
         </h2>

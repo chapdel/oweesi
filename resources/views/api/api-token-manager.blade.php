@@ -65,7 +65,8 @@
                         @foreach ($this->user->tokens->sortBy('name') as $token)
                             <div class="flex items-center justify-between">
                                 <div>
-                                    {{ $token->name }}
+                                    <div>{{ $token->name }}</div>
+                                <small>{{ $token->token}}</small>
                                 </div>
 
                                 <div class="flex items-center">
