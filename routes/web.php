@@ -29,4 +29,16 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     Route::get('/lists', function () {
         return view('lists.index');
     })->name('lists');
+
+    Route::get('/lists/create', function () {
+        return view('lists.create');
+    })->name('lists.create');
+
+    Route::get('/lists/{slug}', function () {
+        return view('lists.show');
+    })->name('lists.show');
+
+    Route::get('/lists/{slug}/edit', function () {
+        return view('lists.edit');
+    })->name('lists.edit');
 });

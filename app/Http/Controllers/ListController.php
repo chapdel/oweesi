@@ -42,7 +42,8 @@ class ListController extends Controller
         $list =   Lists::create([
             'title' => $request->title,
             'description' => $request->description,
-            'uid' => Lists::uid()
+            'uid' => Lists::uid(),
+            'user_id' => auth()->id()
         ]);
 
         if ($request->ajax()) {
