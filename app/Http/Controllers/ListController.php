@@ -62,7 +62,9 @@ class ListController extends Controller
      */
     public function show($id)
     {
-        //
+        $list = Lists::where("uid", $id)->firstOrFail();
+
+        return view('lists.show', ['list' => $list]);
     }
 
     /**

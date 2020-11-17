@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ListController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,9 +35,7 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
         return view('lists.create');
     })->name('lists.create');
 
-    Route::get('/lists/{slug}', function () {
-        return view('lists.show');
-    })->name('lists.show');
+    Route::get('/lists/{slug}', [ListController::class, 'show'])->name('lists.show');
 
     Route::get('/lists/{slug}/edit', function () {
         return view('lists.edit');
