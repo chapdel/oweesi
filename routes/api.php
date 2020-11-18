@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
-    Route::post('/contacts', [ContactController::class, 'store']);
-    Route::put('/contacts', [ContactController::class, 'store']);
+    Route::post('/contacts', [ContactController::class, 'subscribe']);
+    Route::put('/contacts', [ContactController::class, 'subscribeOrUpdate']);
+    Route::delete('/contacts', [ContactController::class, 'unsubscribe']);
 });
