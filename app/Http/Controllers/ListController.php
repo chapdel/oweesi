@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Lists;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class ListController extends Controller
 {
@@ -14,7 +15,7 @@ class ListController extends Controller
      */
     public function index()
     {
-        //
+        return Inertia::render('List/Index', ['lists' => Lists::where('user_id', auth()->id())->get()]);
     }
 
     /**
@@ -51,7 +52,7 @@ class ListController extends Controller
         }
 
         //todo : Add flash message
-        return redirect('users');
+        return redirect()->back();
     }
 
     /**
@@ -60,11 +61,11 @@ class ListController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($list)
     {
-        $list = Lists::where("uid", $id)->firstOrFail();
+        $list = Lists::where('uid', $list)->firstOrFail();
 
-        return view('lists.show', ['list' => $list]);
+        return Inertia::render('List/Show', ['contacts' => $list->contacts()->orderBy('created_at', 'DESC')->get(), 'list' => $list]);
     }
 
     /**

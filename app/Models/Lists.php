@@ -11,7 +11,7 @@ class Lists extends Model
 {
     use HasFactory, SoftDeletes;
     protected $guarded = ['id'];
-    protected $appends = ['subscribers'];
+    protected $appends = ['contacts_nb'];
     protected $table = "lists";
 
 
@@ -20,15 +20,16 @@ class Lists extends Model
         return $this->belongTo(User::class);
     }
 
+    public function getContactsNbAttribute()
+    {
+        return count($this->contacts()->get());
+    }
+
     public function contacts()
     {
         return $this->hasMany(Contact::class, 'list_id');
     }
 
-    public function getSubscribersAttribute()
-    {
-        return count($this->contacts()->get());
-    }
 
     public static function uid()
     {
