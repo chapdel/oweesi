@@ -12,9 +12,10 @@ Notch Relay is free alternative of MailChimp for newsletter
 
 ## Features
 
-It packs in lots of demanding features that allows your shop to scale in no time:
+Available and incoming features:
 
--   [ ] Subscriber list management
+-   [x] Subscriber list management
+-   [ ] Logo Design
 -   [ ] CSV List import files
 -   [ ] CSV exports
 -   [ ] PDF exports

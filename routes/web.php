@@ -4,6 +4,7 @@ use App\Http\Controllers\ListController;
 use App\Http\Controllers\UserController;
 use App\Models\Lists;
 use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,8 +18,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return Inertia::render('Index');
+})->name('home');
 
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     Route::get('/dashboard', function () {
