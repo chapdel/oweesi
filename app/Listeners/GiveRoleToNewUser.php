@@ -2,9 +2,8 @@
 
 namespace App\Listeners;
 
+use App\Models\Lists;
 use Illuminate\Auth\Events\Registered;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Queue\InteractsWithQueue;
 use Spatie\Permission\Models\Role;
 
 class GiveRoleToNewUser
@@ -28,5 +27,10 @@ class GiveRoleToNewUser
     public function handle(Registered $event)
     {
         $event->user->assignRole(Role::findByName('user'));
+        $event->user->lists()->create([
+            'title' => 'Default',
+            'description' => 'Your default contact list',
+            'uid' => Lists::uid()
+        ]);
     }
 }
