@@ -25,7 +25,7 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
         return Inertia\Inertia::render('Dashboard');
     })->name('dashboard');
 
-    Route::get('/users', [UserController::class, 'index'])->name('users');
+    Route::get('/users', [UserController::class, 'index'])->name('users')->middleware('role:Admin');
 
     Route::get('/lists', [ListController::class, 'index'])->name('lists');
     Route::get('/lists/{slug}', [ListController::class, 'show'])->name('lists.show');

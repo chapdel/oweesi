@@ -9,6 +9,9 @@ import { InertiaForm } from "laravel-jetstream";
 import PortalVue from "portal-vue";
 import VueTailwind from "vue-tailwind";
 import settings from "./relay.js";
+import VueMoment from "vue-moment";
+import moment from "moment-timezone";
+Vue.use(VueMoment, moment);
 
 Vue.mixin({ methods: { route } });
 Vue.use(InertiaApp);

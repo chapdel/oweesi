@@ -255,12 +255,12 @@
                 class="sm:hidden"
             >
                 <div class="pt-2 pb-3 space-y-1">
-                    <jet-responsive-nav-link
+                    <!-- <jet-responsive-nav-link
                         :href="route('dashboard')"
                         :active="route().current('dashboard')"
                     >
                         Dashboard
-                    </jet-responsive-nav-link>
+                    </jet-responsive-nav-link> -->
                 </div>
 
                 <!-- Responsive Settings Options -->
@@ -411,7 +411,10 @@
                         <li
                             class="px-2 py-3 hover:bg-gray-900  rounded"
                             :class="
-                                route().current('lists') ? 'bg-gray-900' : ''
+                                route().current('lists') ||
+                                route().current('lists.show')
+                                    ? 'bg-gray-900'
+                                    : ''
                             "
                         >
                             <a :href="route('lists')" class="flex items-center">

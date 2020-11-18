@@ -18,7 +18,7 @@
                         d="M15 19l-7-7 7-7"
                     ></path>
                 </svg>
-                <span>List</span></a
+                <span>Lists</span></a
             >
         </template>
         <template #header>
@@ -62,9 +62,12 @@
                                     <td
                                         :class="props.tdClass"
                                         class="text-right"
-                                    >
-                                        {{ props.row.created_at }}
-                                    </td>
+                                        v-text="
+                                            $moment(
+                                                props.row.created_at
+                                            ).format('LLL')
+                                        "
+                                    ></td>
                                     <!-- <td
                                         :class="props.tdClass"
                                         class="text-right"
