@@ -3518,6 +3518,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 
@@ -3993,6 +3999,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["lists"],
@@ -4013,6 +4023,24 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Layouts/AppLayout */ "./resources/js/Layouts/AppLayout.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -46850,11 +46878,23 @@ var render = function() {
                 [
                   _c(
                     "inertia-link",
-                    { attrs: { href: _vm.route("dashboard") } },
+                    {
+                      staticClass: "flex flex-row",
+                      attrs: { href: _vm.route("dashboard") }
+                    },
                     [
                       _c("jet-application-mark", {
                         staticClass: "block h-9 w-auto"
-                      })
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "span",
+                        {
+                          staticClass:
+                            "text-2xl font-semibold ml-2 text-indigo-700"
+                        },
+                        [_vm._v("Notch Relay")]
+                      )
                     ],
                     1
                   )
@@ -47558,18 +47598,19 @@ var render = function() {
                           staticClass: "w-6 text-gray-500",
                           attrs: {
                             fill: "none",
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round",
-                            "stroke-width": "2",
+                            stroke: "currentColor",
                             viewBox: "0 0 24 24",
-                            stroke: "currentColor"
+                            xmlns: "http://www.w3.org/2000/svg"
                           }
                         },
                         [
                           _c("path", {
                             attrs: {
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round",
+                              "stroke-width": "2",
                               d:
-                                "M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"
+                                "M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
                             }
                           })
                         ]
@@ -48468,6 +48509,7 @@ var render = function() {
                   attrs: {
                     headers: [
                       { value: "title", text: "Title" },
+                      { value: "uid", text: "ID" },
                       {
                         value: "contacts_nb",
                         text: "Subscribers",
@@ -48500,6 +48542,14 @@ var render = function() {
                                 ])
                               ]
                             ),
+                            _vm._v(" "),
+                            _c("td", { class: props.tdClass }, [
+                              _vm._v(
+                                "\n                                    " +
+                                  _vm._s(props.row.uid) +
+                                  "\n                                "
+                              )
+                            ]),
                             _vm._v(" "),
                             _c(
                               "td",
@@ -48560,7 +48610,39 @@ var render = function() {
           key: "backlink",
           fn: function() {
             return [
-              _c("a", { attrs: { href: _vm.route("lists") } }, [_vm._v("List")])
+              _c(
+                "a",
+                {
+                  staticClass: "text-xs text-gray-600 flex flex-row",
+                  attrs: { href: _vm.route("lists") }
+                },
+                [
+                  _c(
+                    "svg",
+                    {
+                      staticClass: "w-4 h-4 mr-1",
+                      attrs: {
+                        fill: "none",
+                        stroke: "currentColor",
+                        viewBox: "0 0 24 24",
+                        xmlns: "http://www.w3.org/2000/svg"
+                      }
+                    },
+                    [
+                      _c("path", {
+                        attrs: {
+                          "stroke-linecap": "round",
+                          "stroke-linejoin": "round",
+                          "stroke-width": "2",
+                          d: "M15 19l-7-7 7-7"
+                        }
+                      })
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("List")])
+                ]
+              )
             ]
           },
           proxy: true
@@ -48573,9 +48655,13 @@ var render = function() {
                 "h2",
                 {
                   staticClass:
-                    "font-semibold text-xl text-gray-800 leading-tight"
+                    "font-semibold text-base text-gray-800 leading-tight"
                 },
-                [_vm._v("\n            Users\n        ")]
+                [
+                  _vm._v(
+                    "\n            " + _vm._s(_vm.list.title) + "\n        "
+                  )
+                ]
               )
             ]
           },
