@@ -400,10 +400,10 @@
                     <button
                         class="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
                         type="button"
-                        onclick="toggleNavbar('example-collapse-navbar')"
+                        @click="toggleNavbar()"
                     >
                         <svg
-                            class="w-4 h-4"
+                            class="w-6 h-6"
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24"
@@ -413,14 +413,14 @@
                                 stroke-linecap="round"
                                 stroke-linejoin="round"
                                 stroke-width="2"
-                                d="M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                                d="M4 6h16M4 12h16M4 18h16"
                             ></path>
                         </svg>
                     </button>
                 </div>
                 <div
                     class="lg:flex flex-grow items-center bg-white lg:bg-transparent lg:shadow-none hidden"
-                    id="example-collapse-navbar"
+                    :class="{ hidden: !showMenu, block: showMenu }"
                 >
                     <ul class="flex flex-col lg:flex-row list-none mr-auto">
                         <!-- <li class="flex items-center">
@@ -563,44 +563,20 @@
 
 <script>
 import JetApplicationMark from "@/Jetstream/ApplicationMark";
-import JetDropdown from "@/Jetstream/Dropdown";
-import JetDropdownLink from "@/Jetstream/DropdownLink";
-import JetNavLink from "@/Jetstream/NavLink";
-import JetResponsiveNavLink from "@/Jetstream/ResponsiveNavLink";
 
 export default {
     components: {
-        JetApplicationMark,
-        JetDropdown,
-        JetDropdownLink,
-        JetNavLink,
-        JetResponsiveNavLink
+        JetApplicationMark
     },
 
     data() {
         return {
-            showingNavigationDropdown: false,
-            isOpen: false
+            showMenu: false
         };
     },
-
     methods: {
-        switchToTeam(team) {
-            this.$inertia.put(
-                route("current-team.update"),
-                {
-                    team_id: team.id
-                },
-                {
-                    preserveState: false
-                }
-            );
-        },
-
-        logout() {
-            axios.post(route("logout").url()).then(response => {
-                window.location = "/";
-            });
+        toggleNavbar: function() {
+            this.showMenu = !this.showMenu;
         }
     }
 };

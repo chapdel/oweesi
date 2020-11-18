@@ -3469,10 +3469,6 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Jetstream_ApplicationMark__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Jetstream/ApplicationMark */ "./resources/js/Jetstream/ApplicationMark.vue");
-/* harmony import */ var _Jetstream_Dropdown__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Jetstream/Dropdown */ "./resources/js/Jetstream/Dropdown.vue");
-/* harmony import */ var _Jetstream_DropdownLink__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/Jetstream/DropdownLink */ "./resources/js/Jetstream/DropdownLink.vue");
-/* harmony import */ var _Jetstream_NavLink__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/Jetstream/NavLink */ "./resources/js/Jetstream/NavLink.vue");
-/* harmony import */ var _Jetstream_ResponsiveNavLink__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/Jetstream/ResponsiveNavLink */ "./resources/js/Jetstream/ResponsiveNavLink.vue");
 //
 //
 //
@@ -4036,37 +4032,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
-
-
-
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    JetApplicationMark: _Jetstream_ApplicationMark__WEBPACK_IMPORTED_MODULE_0__["default"],
-    JetDropdown: _Jetstream_Dropdown__WEBPACK_IMPORTED_MODULE_1__["default"],
-    JetDropdownLink: _Jetstream_DropdownLink__WEBPACK_IMPORTED_MODULE_2__["default"],
-    JetNavLink: _Jetstream_NavLink__WEBPACK_IMPORTED_MODULE_3__["default"],
-    JetResponsiveNavLink: _Jetstream_ResponsiveNavLink__WEBPACK_IMPORTED_MODULE_4__["default"]
+    JetApplicationMark: _Jetstream_ApplicationMark__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   data: function data() {
     return {
-      showingNavigationDropdown: false,
-      isOpen: false
+      showMenu: false
     };
   },
   methods: {
-    switchToTeam: function switchToTeam(team) {
-      this.$inertia.put(route("current-team.update"), {
-        team_id: team.id
-      }, {
-        preserveState: false
-      });
-    },
-    logout: function logout() {
-      axios.post(route("logout").url()).then(function (response) {
-        window.location = "/";
-      });
+    toggleNavbar: function toggleNavbar() {
+      this.showMenu = !this.showMenu;
     }
   }
 });
@@ -4449,6 +4427,35 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Layouts_GuestLayout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Layouts/GuestLayout */ "./resources/js/Layouts/GuestLayout.vue");
 /* harmony import */ var _Jetstream_Welcome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Jetstream/Welcome */ "./resources/js/Jetstream/Welcome.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -48188,9 +48195,27 @@ var render = function() {
                 1
               ),
               _vm._v(" "),
-              _c("div", {
-                staticClass: "hidden space-x-8 sm:-my-px sm:ml-10 sm:flex"
-              })
+              _c(
+                "div",
+                { staticClass: "hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" },
+                [
+                  _c(
+                    "jet-nav-link",
+                    {
+                      attrs: {
+                        href: _vm.route("home"),
+                        active: _vm.route().current("home")
+                      }
+                    },
+                    [
+                      _vm._v(
+                        "\n                            Home\n                        "
+                      )
+                    ]
+                  )
+                ],
+                1
+              )
             ]),
             _vm._v(" "),
             _c(
@@ -48563,7 +48588,23 @@ var render = function() {
             }
           },
           [
-            _c("div", { staticClass: "pt-2 pb-3 space-y-1" }),
+            _c(
+              "div",
+              { staticClass: "pt-2 pb-3 space-y-1" },
+              [
+                _c(
+                  "jet-responsive-nav-link",
+                  {
+                    attrs: {
+                      href: _vm.route("home"),
+                      active: _vm.route().current("home")
+                    }
+                  },
+                  [_vm._v("\n                    Home\n                ")]
+                )
+              ],
+              1
+            ),
             _vm._v(" "),
             _c("div", { staticClass: "pt-4 pb-1 border-t border-gray-200" }, [
               _c("div", { staticClass: "flex items-center px-4" }, [
@@ -49054,16 +49095,18 @@ var render = function() {
                     {
                       staticClass:
                         "cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none",
-                      attrs: {
-                        type: "button",
-                        onclick: "toggleNavbar('example-collapse-navbar')"
+                      attrs: { type: "button" },
+                      on: {
+                        click: function($event) {
+                          return _vm.toggleNavbar()
+                        }
                       }
                     },
                     [
                       _c(
                         "svg",
                         {
-                          staticClass: "w-4 h-4",
+                          staticClass: "w-6 h-6",
                           attrs: {
                             fill: "none",
                             stroke: "currentColor",
@@ -49077,8 +49120,7 @@ var render = function() {
                               "stroke-linecap": "round",
                               "stroke-linejoin": "round",
                               "stroke-width": "2",
-                              d:
-                                "M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                              d: "M4 6h16M4 12h16M4 18h16"
                             }
                           })
                         ]
@@ -49094,7 +49136,7 @@ var render = function() {
                 {
                   staticClass:
                     "lg:flex flex-grow items-center bg-white lg:bg-transparent lg:shadow-none hidden",
-                  attrs: { id: "example-collapse-navbar" }
+                  class: { hidden: !_vm.showMenu, block: _vm.showMenu }
                 },
                 [
                   _c("ul", {
@@ -50255,7 +50297,41 @@ var render = function() {
                       staticClass:
                         "text-pink-600 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-pink-300"
                     },
-                    [_c("i", { staticClass: "fas fa-rocket text-xl" })]
+                    [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "w-6 h-6",
+                          attrs: {
+                            fill: "none",
+                            stroke: "currentColor",
+                            viewBox: "0 0 24 24",
+                            xmlns: "http://www.w3.org/2000/svg"
+                          }
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round",
+                              "stroke-width": "2",
+                              d:
+                                "M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("path", {
+                            attrs: {
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round",
+                              "stroke-width": "2",
+                              d:
+                                "M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z"
+                            }
+                          })
+                        ]
+                      )
+                    ]
                   ),
                   _vm._v(" "),
                   _c("h3", { staticClass: "text-3xl font-semibold" }, [
@@ -50274,7 +50350,31 @@ var render = function() {
                               staticClass:
                                 "text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-pink-600 bg-pink-200 mr-3"
                             },
-                            [_c("i", { staticClass: "fas fa-envelope" })]
+                            [
+                              _c(
+                                "svg",
+                                {
+                                  staticClass: "w-4 h-4",
+                                  attrs: {
+                                    fill: "none",
+                                    stroke: "currentColor",
+                                    viewBox: "0 0 24 24",
+                                    xmlns: "http://www.w3.org/2000/svg"
+                                  }
+                                },
+                                [
+                                  _c("path", {
+                                    attrs: {
+                                      "stroke-linecap": "round",
+                                      "stroke-linejoin": "round",
+                                      "stroke-width": "2",
+                                      d:
+                                        "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                                    }
+                                  })
+                                ]
+                              )
+                            ]
                           )
                         ]),
                         _vm._v(" "),
