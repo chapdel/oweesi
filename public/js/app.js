@@ -4032,6 +4032,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -4044,6 +4053,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     toggleNavbar: function toggleNavbar() {
+      alert("ddd");
       this.showMenu = !this.showMenu;
     }
   }
@@ -49090,43 +49100,9 @@ var render = function() {
                     1
                   ),
                   _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass:
-                        "cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none",
-                      attrs: { type: "button" },
-                      on: {
-                        click: function($event) {
-                          return _vm.toggleNavbar()
-                        }
-                      }
-                    },
-                    [
-                      _c(
-                        "svg",
-                        {
-                          staticClass: "w-6 h-6",
-                          attrs: {
-                            fill: "none",
-                            stroke: "currentColor",
-                            viewBox: "0 0 24 24",
-                            xmlns: "http://www.w3.org/2000/svg"
-                          }
-                        },
-                        [
-                          _c("path", {
-                            attrs: {
-                              "stroke-linecap": "round",
-                              "stroke-linejoin": "round",
-                              "stroke-width": "2",
-                              d: "M4 6h16M4 12h16M4 18h16"
-                            }
-                          })
-                        ]
-                      )
-                    ]
-                  )
+                   false
+                    ? undefined
+                    : _vm._e()
                 ],
                 1
               ),
@@ -49139,9 +49115,7 @@ var render = function() {
                   class: { hidden: !_vm.showMenu, block: _vm.showMenu }
                 },
                 [
-                  _c("ul", {
-                    staticClass: "flex flex-col lg:flex-row list-none mr-auto"
-                  }),
+                  _vm._m(0),
                   _vm._v(" "),
                   _c(
                     "ul",
@@ -49281,7 +49255,7 @@ var render = function() {
               ]
             ),
             _vm._v(" "),
-            _vm._m(0)
+            _vm._m(1)
           ])
         ],
         2
@@ -49293,6 +49267,34 @@ var render = function() {
   )
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "ul",
+      { staticClass: "flex flex-col lg:flex-row list-none mr-auto" },
+      [
+        _c("li", { staticClass: "flex items-center" }, [
+          _c(
+            "a",
+            {
+              staticClass:
+                "lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold",
+              attrs: { href: "#" }
+            },
+            [
+              _c("i", {
+                staticClass:
+                  "lg:text-gray-300 text-gray-500 far fa-file-alt text-lg leading-lg mr-2"
+              }),
+              _vm._v("\n                            Docs")
+            ]
+          )
+        ])
+      ]
+    )
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

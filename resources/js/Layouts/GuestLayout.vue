@@ -398,22 +398,31 @@
                         >
                     </inertia-link>
                     <button
-                        class="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
+                        class="cursor-pointer text-xl leading-none px-3 border border-solid border-transparent rounded bg-gray-100 block lg:hidden outline-none focus:outline-none"
                         type="button"
+                        v-if="0 == 1"
                         @click="toggleNavbar()"
                     >
                         <svg
-                            class="w-6 h-6"
+                            class="w-6 h-6 text-indigo-700"
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg"
                         >
                             <path
+                                v-if="!showMenu"
                                 stroke-linecap="round"
                                 stroke-linejoin="round"
                                 stroke-width="2"
                                 d="M4 6h16M4 12h16M4 18h16"
+                            ></path>
+                            <path
+                                v-else
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12"
                             ></path>
                         </svg>
                     </button>
@@ -423,7 +432,7 @@
                     :class="{ hidden: !showMenu, block: showMenu }"
                 >
                     <ul class="flex flex-col lg:flex-row list-none mr-auto">
-                        <!-- <li class="flex items-center">
+                        <li class="flex items-center">
                             <a
                                 class="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
                                 href="#"
@@ -432,7 +441,7 @@
                                 ></i>
                                 Docs</a
                             >
-                        </li> -->
+                        </li>
                     </ul>
                     <ul class="flex flex-col lg:flex-row list-none lg:ml-auto">
                         <li class="flex items-center">
@@ -576,6 +585,7 @@ export default {
     },
     methods: {
         toggleNavbar: function() {
+            alert("ddd");
             this.showMenu = !this.showMenu;
         }
     }
