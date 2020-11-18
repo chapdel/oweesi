@@ -23,20 +23,22 @@ Route::get('/', function () {
 
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     Route::get('/dashboard', function () {
-        return Inertia\Inertia::render('Dashboard');
+        return Inertia::render('Dashboard');
     })->name('dashboard');
 
     Route::get('/users', [UserController::class, 'index'])->name('users')->middleware('role:Admin');
 
     Route::get('/lists', [ListController::class, 'index'])->name('lists');
+    Route::post('/lists', [ListController::class, 'store'])->name('lists.store');
+    Route::get('/lists/create', function () {
+        return Inertia::render('List/Create');
+    })->name('lists.create');
     Route::get('/lists/{slug}', [ListController::class, 'show'])->name('lists.show');
 
 
-    Route::get('/lists/create', function () {
-        return Inertia\Inertia::render('Lists/Create');
-    })->name('lists/create');
 
-    Route::get('/lists/{slug}/edit', function () {
-        return Inertia\Inertia::render('Lists/Edit');
-    })->name('lists/edit');
+
+    /* Route::get('/lists/{slug}/edit', function () {
+        return Inertia::render('Lists/Edit');
+    })->name('lists/edit'); */
 });

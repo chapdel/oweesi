@@ -47,9 +47,9 @@ class ListController extends Controller
             'user_id' => auth()->id()
         ]);
 
-        if ($request->ajax()) {
+        /* if ($request->ajax()) {
             return response()->json($list);
-        }
+        } */
 
         //todo : Add flash message
         return redirect()->back();

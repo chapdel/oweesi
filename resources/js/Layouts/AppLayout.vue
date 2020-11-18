@@ -412,6 +412,7 @@
                             class="px-2 py-3 hover:bg-gray-900  rounded"
                             :class="
                                 route().current('lists') ||
+                                route().current('lists.create') ||
                                 route().current('lists.show')
                                     ? 'bg-gray-900'
                                     : ''

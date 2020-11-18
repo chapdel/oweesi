@@ -53,7 +53,7 @@ class ContactController extends Controller
             ]);
         }
 
-        return;
+        return back();
     }
 
     /**
