@@ -25,7 +25,7 @@ class DummySeederData extends Seeder
 
         $user = Role::create(['name' => 'Super-Admin']);
         $user = Role::create(['name' => 'user']);
-        $user->givePermissionTo('manage lists');
+        $user->givePermissionTo('lists');
 
         $admin = Role::create(['name' => 'admin']);
         $admin->givePermissionTo('lists');
