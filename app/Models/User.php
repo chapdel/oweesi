@@ -63,6 +63,6 @@ class User extends Authenticatable
 
     public function lists()
     {
-        return $this->hasMany(Lists:class);
+        return $this->hasMany(Lists::class);
     }
 }

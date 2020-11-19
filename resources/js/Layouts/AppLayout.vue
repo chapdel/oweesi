@@ -440,6 +440,7 @@
                         </li>
                         <li
                             class="px-2 py-3 hover:bg-gray-900  rounded"
+                            v-if="hasRole('Super-Admin') || hasRole('Super Admin') || hasRole('Admin') || hasRole('admin')"
                             :class="
                                 route().current('users') ? 'bg-gray-900' : ''
                             "

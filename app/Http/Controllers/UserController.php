@@ -16,7 +16,7 @@ class UserController extends Controller
     public function index()
     {
 
-        return Inertia::render('Users/Index', ['users' => User::where('id',  '<>', auth()->id())->get()]);
+        return Inertia::render('Users/Index', ['users' => User::where('id',  '<>', auth()->id())->orderBy('created_at', 'desc')->get()]);
     }
 
     /**

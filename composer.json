@@ -1,10 +1,10 @@
 {
-    "name": "laravel/laravel",
+    "name": "chapdel/notchrelay",
     "type": "project",
-    "description": "The Laravel Framework.",
+    "description": "Free email marketing tool.",
     "keywords": [
-        "framework",
-        "laravel"
+        "newsletter",
+        "email"
     ],
     "license": "MIT",
     "require": {
