@@ -64,6 +64,7 @@ $app->singleton(
 */
 
 $app->configure('app');
+$app->configure('cors');
 
 /*
 |--------------------------------------------------------------------------
@@ -78,7 +79,7 @@ $app->configure('app');
 
 $app->middleware([
     EnForceJsonMiddleware::class,
-     Fruitcake\Cors\HandleCors::class,
+    Fruitcake\Cors\HandleCors::class,
 ]);
 
 $app->routeMiddleware([
