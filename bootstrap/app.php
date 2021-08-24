@@ -77,7 +77,8 @@ $app->configure('app');
 */
 
 $app->middleware([
-    EnForceJsonMiddleware::class
+    EnForceJsonMiddleware::class,
+     Fruitcake\Cors\HandleCors::class,
 ]);
 
 $app->routeMiddleware([
