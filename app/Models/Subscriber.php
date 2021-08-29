@@ -15,12 +15,12 @@ class Subscriber extends Model
     protected $guarded = ['id'];
 
 
-    /* protected static function booted()
+    protected static function booted()
     {
         static::creating(function ($model) {
             $model->uid = self::uid();
         });
-    } */
+    }
 
     public static function uid()
     {
